@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/Test/Debug
+/Test/.vs
+/Test/TestLogger/Debug
+/Test/TestLogger/logger.txt

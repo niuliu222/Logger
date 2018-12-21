@@ -16,7 +16,7 @@ namespace LLD{
 		public:
 			void SetOutputFile(const std::string & str) {
 				OutputUrl = str;
-				Output.open(str, ios::out, 0);
+				Output.open(str, std::ios::out);
 			}
 			void SetStdOutputEnable(bool enable) {
 				this->EnableStdOutput = enable;
@@ -28,7 +28,7 @@ namespace LLD{
 					std::cout << flog << std::endl;
 				}
 			}
-			~LogType() {
+			~Logger() {
 				Output.close();
 			}
 		protected:
@@ -79,7 +79,7 @@ namespace LLD{
 		}
 
 		void LogError(const std::string & str, const char * file, int line) {
-			logger->Log(str, LogType:::Error);
+			logger->Log(str, LogType::Error);
 		}
 
 		void LogInit(const std::string &url, bool enable_std_output) {
@@ -89,7 +89,7 @@ namespace LLD{
 		}
 
 		void LogInit(const char *url = "./logger.txt", bool enable_std_output = true) {
-			std::string str = trl;
+			std::string str = url;
 			LogInit(str, enable_std_output);
 		}
 
